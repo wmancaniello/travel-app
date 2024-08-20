@@ -3,4 +3,12 @@
 // Fontawesonme
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 // Login
-@import 'partials/login.scss';
+@import "partials/login.scss";
+// Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap");
+
+.ms_logo {
+    font-family: "Leckerli One", cursive;
+    font-size: 2rem;
+    color: #5339AC;
+}
