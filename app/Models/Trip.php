@@ -9,6 +9,7 @@ class Trip extends Model
 {
     public function days()
     {
+        return $this->belongsTo(User::class);
         return $this->hasMany(Day::class);
     }
 }

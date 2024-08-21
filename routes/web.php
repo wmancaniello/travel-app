@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TripController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,12 +20,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+// Gruppo di rotte protette da 'auth' middleware e con prefisso 'admin'
 Route::middleware('auth')
     ->prefix('admin') // Prefisso nell'url delle rotte di questo gruppo
-    ->name('admin.') // inizio di ogni nome delle rotte del gruppo
+    ->name('admin.')  // Prefisso per i nomi delle rotte
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+        // Rotte per Viaggi
+        Route::resource('trips', TripController::class);
     });
 
 require __DIR__ . '/auth.php';
