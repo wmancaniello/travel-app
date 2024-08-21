@@ -23,7 +23,7 @@
                                             <i class="fa-solid fa-pencil"></i>
                                         </a>
                                         <button type="button" class="btn btn-outline-danger" title="Elimina"
-                                            data-bs-toggle="modal" data-bs-target="">
+                                            data-bs-toggle="modal" data-bs-target="#deleteModal{{ $trip->id }}">
                                             <i class="fa-solid fa-trash"></i>
                                         </button>
                                     </div>
@@ -33,8 +33,8 @@
                     </div>
                 </div>
 
-                {{-- Modale conferma --}}
-                {{-- ?? --}}
+                {{-- Modale conferma eliminazione --}}
+                @include('admin.partials.delete_modal', ['trip' => $trip])
                 {{-- /Modale --}}
             @endforeach
         </div>
