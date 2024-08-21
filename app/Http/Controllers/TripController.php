@@ -40,12 +40,25 @@ class TripController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
             'description' => 'nullable|string',
             'start_date' => 'required|date',
             'end_date' => 'nullable|date',
         ]);
 
+        // Aggiunta dell'ID dell'utente autenticato
+        $validatedData['user_id'] = auth()->id();
+
+        // Gestione del caricamento immagine
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('trip_images', 'public');
+            $validatedData['image'] = $imagePath;
+        }
+
+        // Creazione del Viaggio
         $trip = Trip::create($validatedData);
+
+        // redirect alla pagina di Index
         return redirect()->route('admin.trips.index')->with('success', 'Viaggio creato correttamente');
     }
 

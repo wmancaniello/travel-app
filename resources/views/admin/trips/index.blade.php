@@ -4,14 +4,18 @@
     <div class="container">
         <h1 class=" pt-5">I TUOI VIAGGI</h1>
 
-        <a class="btn btn-primary mt-3 mb-3" href="{{ route('admin.trips.create') }}">Inserisci</a>
+        <a class="btn btn-primary mt-3 mb-3" href="{{ route('admin.trips.create') }}">
+            <i class="fa-solid fa-plus"></i> Nuovo Viaggio
+        </a>
 
         <div class="row justify-content-lg-start justify-content-between">
             @foreach ($trips as $trip)
                 <div class="col-md-5 mb-4 col-lg-4">
                     <div class="card h-100 ms_card">
-                        <!-- Immagine del Viaggio -->
-                        <img src="https://picsum.photos/200/300" class="card-img-top" alt="Immagine di {{ $trip->title }}">
+                        
+                        {{-- Immagine del Viaggio --}}
+                        <img src="{{ $trip->image ? asset('storage/' . $trip->image) : 'https://picsum.photos/200/300' }}" class="card-img-top" alt="Immagine di {{ $trip->title }}">
+                        {{-- /Immagine del Viaggio --}}
 
                         <div class="card-body d-flex flex-column ">
                             <h5 class="card-title">{{ $trip->title }}</h5>
