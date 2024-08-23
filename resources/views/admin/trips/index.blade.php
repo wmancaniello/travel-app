@@ -21,9 +21,9 @@
                             <h5 class="card-title">{{ $trip->title }}</h5>
                             <div class="mt-auto">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a class="btn btn-primary" href="#">Dettagli</a>
+                                    <a class="btn btn-primary" href="{{ route('admin.trips.show', $trip->id) }}">Dettagli</a>
                                     <div class="btn-group">
-                                        <a href="#" class="btn btn-outline-primary" title="Modifica">
+                                        <a href="{{ route('admin.trips.edit', $trip->id) }}" class="btn btn-outline-primary" title="Modifica">
                                             <i class="fa-solid fa-pencil"></i>
                                         </a>
                                         <button type="button" class="btn btn-outline-danger" title="Elimina"

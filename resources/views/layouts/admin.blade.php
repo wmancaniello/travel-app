@@ -27,8 +27,10 @@
 
             <nav class="navbar navbar-expand-lg ms_headernav sticky-top">
                 <div class="container-fluid">
-                    <a class="navbar-brand font" href="{{ route('admin.dashboard') }}">
-                        <img src="/logo-white.png" alt="">
+                    <a class="navbar-brand d-flex align-items-center" href="{{ route('admin.dashboard') }}">
+                        <div class="logo_navbar ms_logo">
+                            travel-app
+                        </div>
                     </a>
                     <button class="navbar-toggler font border" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false"
@@ -38,22 +40,22 @@
                     <div class="collapse navbar-collapse" id="navbar">
 
                         <ul class="navbar-nav gap-2 ms-auto mb-lg-0">
-                            {{-- @php
-                                use App\Models\Flat;
-                            @endphp --}}
+                            @php
+                                use App\Models\Trip;
+                            @endphp
 
-                            {{-- @if (count(Flat::where('user_id', Auth::id())->get()) >= 1) --}}
-                            {{-- <li class="nav-item">
-                                <a class="" href="">I tuoi Viaggi</a>
-                            </li> --}}
-                            {{-- @endif --}}
+                            @if (count(Trip::where('user_id', Auth::id())->get()) >= 1)
+                                <li class="nav-item">
+                                    <a class="nav-link ms_hover font" href="{{ route('admin.trips.index') }}">I tuoi Viaggi</a>
+                                </li>
+                            @endif
 
-                            {{-- <li class="nav-item">
-                                <a class="" href="">Nuovo Viaggio</a>
+                            <li class="nav-item">
+                                <a class="nav-link ms_hover font" href="{{ route('admin.trips.create') }}">Nuovo Viaggio</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="" href="">Appunti/Note</a>
+                                <a class="nav-link ms_hover font" href="">Appunti/Note</a>
                             </li>
 
                             <li class="nav-item">
@@ -64,7 +66,7 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
-                            </li> --}}
+                            </li>
                         </ul>
 
                     </div>

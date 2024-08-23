@@ -42,20 +42,27 @@
                     {{-- Email --}}
 
                     {{-- Password --}}
-                    <label for="password"></label>
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                        name="password" required autocomplete="new-password" placeholder="Password">
+                    <div class="form-group position-relative">
+                        <label for="password">Password</label>
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                            name="password" required autocomplete="new-password" placeholder="Password">
+                        <i id="toggle-password" class="fas fa-eye position-absolute"
+                            style="right: 10px; top: 65%; transform: translateY(-50%); cursor: pointer;"></i>
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
 
-                    @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                    {{-- Conferma --}}
-                    <label for="password-confirm"></label>
-                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required
-                        autocomplete="new-password" placeholder="Conferma Password">
-                    {{-- Password --}}
+                    {{-- Conferma Password --}}
+                    <div class="form-group position-relative">
+                        <label for="password-confirm">Conferma Password</label>
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
+                            required autocomplete="new-password" placeholder="Conferma Password">
+                        <i id="toggle-password-confirm" class="fas fa-eye position-absolute"
+                            style="right: 10px; top: 65%; transform: translateY(-50%); cursor: pointer;"></i>
+                    </div>
 
                     {{-- btn REGISTER --}}
                     <button type="submit" class="btn btn-primary">

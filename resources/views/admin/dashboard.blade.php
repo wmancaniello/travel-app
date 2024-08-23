@@ -27,10 +27,10 @@
         <div class="row justify-content-center">
 
             <!-- Card Viaggi -->
-            {{-- @php
-                use App\Models\Flat;
-            @endphp --}}
-            {{-- @if (count(Flat::where('user_id', Auth::id())->get()) >= 1) --}}
+            @php
+                use App\Models\Trip;
+            @endphp
+            @if (count(Trip::where('user_id', Auth::id())->get()) >= 1)
             <div class="col-12 col-md-6 col-lg-4 mb-4" style="height: 180px; width: 200px">
                 <a href="{{ route('admin.trips.index') }}" class="card text-center h-100 text-decoration-none text-dark">
                     <div
@@ -40,11 +40,11 @@
                     </div>
                 </a>
             </div>            
-            {{-- @endif --}}
+            @endif
 
             <!-- Card Aggiungi Viaggio -->
             <div class="col-12 col-md-6 col-lg-4 mb-4" style="height: 180px; width: 200px">
-                <a href="#" class="card text-center h-100 text-decoration-none text-dark">
+                <a href="{{ route('admin.trips.create') }}" class="card text-center h-100 text-decoration-none text-dark">
                     <div
                         class="card-body d-flex flex-column justify-content-center align-items-center ms_color-dashboard hover-effect">
                         <i class="fa-solid fa-house-medical fa-2x mb-3"></i>
@@ -59,7 +59,7 @@
                 <a href="#" class="card text-center h-100 text-decoration-none text-dark">
                     <div
                         class="card-body d-flex flex-column justify-content-center align-items-center ms_color-dashboard hover-effect">
-                        <i class="fa-solid fa-house-user fa-2x mb-3"></i>
+                        <i class="fa-solid fa-book fa-2x mb-3"></i>
                         <h5 class="card-title">Diario</h5>
                     </div>
                 </a>
